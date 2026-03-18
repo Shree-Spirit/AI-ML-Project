@@ -15,18 +15,13 @@ genai.configure(api_key=os.getenv("AIzaSyBlTf8NVOCAEcX90XEzJJSfHC295yJ-pVI"))
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 
-# ─────────────────────────────────────────
-#  PAGE CONFIG
-# ─────────────────────────────────────────
 st.set_page_config(
     page_title="AI House Price Predictor",
     page_icon="🏠",
     layout="wide"
 )
 
-# ─────────────────────────────────────────
-#  CUSTOM CSS
-# ─────────────────────────────────────────
+
 st.markdown("""
     <style>
         .main { background-color: #f5f7fa; }
@@ -129,9 +124,6 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# ─────────────────────────────────────────
-#  GENERATE MARKET DATA
-# ─────────────────────────────────────────
 
 
 @st.cache_data
@@ -185,9 +177,6 @@ def generate_market_data():
 
 market_data = generate_market_data()
 
-# ─────────────────────────────────────────
-#  GEMINI AI FUNCTIONS
-# ─────────────────────────────────────────
 
 
 def predict_price_with_ai(area, bedrooms, bathrooms, floors, age, garage, location, condition):
